@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Aplicação de preço do BitCoin em diferentes moedas.",
-  "main": "index.js",
+  "main": "./src/api/server.js",
   "scripts": {
     "start": "node server",
     "dev": "nodemon .",
@@ -21,6 +21,7 @@
   "author": "Rubia Emily",
   "license": "ISC",
   "dependencies": {
+    "@types/jest": "^27.4.1",
     "axios": "^0.25.0",
     "cors": "^2.8.5",
     "dotenv-safe": "^5.0.1",
@@ -32,7 +33,7 @@
     "url": "https://github.com/rubiaemilly29/Crypto-Index/issues"
   },
   "homepage": "https://github.com/rubiaemilly29/Crypto-Index#readme",
-   "devDependencies": {
+  "devDependencies": {
     "eslint-config-trybe-backend": "^1.0.4",
     "frisby": "2.1.2",
     "jest": "^27.4.7",
