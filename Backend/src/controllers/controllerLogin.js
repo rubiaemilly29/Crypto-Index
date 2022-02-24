@@ -1,10 +1,13 @@
+const serviceLogin = require('../service/serviceLogin').loginService;
+
 const login = (req, res) => {
   try {
-    const { email, password } = req.body;
-    const response = serviceLogin.login(email, password);
+    const { email } = req.body;
+    const response = serviceLogin(email);
     return res.status(200).json(response.message);
   } catch (e) {
-    console.log(e);
+    const err = e;
+    throw err;
   }
 };
   module.exports = {
