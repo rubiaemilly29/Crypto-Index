@@ -2,25 +2,23 @@ const express = require('express');
 require('dotenv-safe').load();
 const rescue = require('express-rescue');
 const cors = require('cors');
-const fs = require('fs');
+// const fs = require('fs');
 const morgan = require('morgan');
-const path = require('path');
-const { currentPrice } = require('../integrations/reqAPI');
+// const path = require('path');
 const errorRotas = require('../middleware/errorsRotas');
 const errorApi = require('../middleware/errorApi');
+const router = require('../router/router');
 
-// const router = require('./src/routes/routes');
-
-const accessLogStream = fs.createWriteStream(
-    path.join('src', 'logs', 'access.log'), { flags: 'a' },
-);
+// const accessLogStream = fs.createWriteStream(
+//     path.join('src', 'logs', 'access.log'), { flags: 'a' },
+// );
 
 const app = express();
-app.use(morgan('combined', { stream: accessLogStream }));
+// app.use(morgan('combined', { stream: accessLogStream }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
-app.use('/api', currentPrice);
+app.use('/api', router);
 const port = process.env.PORT;
 
 app.use(rescue(errorRotas));
