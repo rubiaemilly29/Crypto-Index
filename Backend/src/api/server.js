@@ -5,7 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const errorRotas = require('../middleware/errorsRotas');
 const errorApi = require('../middleware/errorApi');
-const router = require('../router/router');
+const router = require('../router');
 
 const app = express();
 app.use(morgan('dev'));
