@@ -1,8 +1,6 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-let token;
-
 const secret = process.env.JWT_SECRET;
 const jwtConfig = {
   expiresIn: '30d',
@@ -10,15 +8,11 @@ const jwtConfig = {
 };
 
 const loginService = (email) => {
-  if (!email) {
-    const response = { status: 400, message: 'Campo invalido' };
-    throw response;
-  }
-    const userWithoutPwd = {
+    const jwtEmail = {
       email,
   };
-  token = jwt.sign({ data: userWithoutPwd }, secret, jwtConfig);
-  console.log(token);
+  const token = jwt.sign({ data: jwtEmail }, secret, jwtConfig);
+
   const response = { status: 400, message: token.slice(-16) };
   return response;
 };
