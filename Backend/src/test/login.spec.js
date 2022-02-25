@@ -1,6 +1,9 @@
 const frisby = require('frisby');
+require('dotenv-safe').load();
 
-const url = 'http://localhost:4000/api';
+const port = process.env.PORT;
+
+const url = `http://localhost:${port}/api`;
 
 describe('Endpoint POST `/login`', () => {
 

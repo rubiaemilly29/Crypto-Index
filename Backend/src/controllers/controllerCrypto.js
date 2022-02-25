@@ -1,8 +1,9 @@
-const json = require('../currencies.json');
+const serviceCrypto = require('../service/serviceCrypto');
 
-const getCryptoCoin = (_req, res) => {
+const getCryptoCoin = async (_req, res) => {
+    const response = await serviceCrypto.getCryptoCoin();
 
-  res.status(200).send('oi');
+  return res.status(200).json(response);
 };
 
 module.exports = {

@@ -1,4 +1,4 @@
-const { currentPrice, currentPriceSpecific } = require("../../integrations/reqAPI")
+const currentPrice = require("../../integrations/reqAPI")
 
 describe('currentPrice', () => {
   it('Request ok', async() => {
