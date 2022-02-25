@@ -8,8 +8,8 @@ const jwtConfig = {
 };
 
 const loginService = (email) => {
-    const jwtEmail = {
-      email,
+  const jwtEmail = {
+    email,
   };
   const token = jwt.sign({ data: jwtEmail }, secret, jwtConfig);
 

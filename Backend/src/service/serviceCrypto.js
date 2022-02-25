@@ -1,5 +1,20 @@
+const fs = require('fs');
 const api = require('../integrations/reqAPI');
 const current = require('../currencies.json');
+
+const restartCurrent = () => {
+  const curren = {
+    BRL: '5.400',
+    EUR: '0.920',
+    CAD: '1.440',
+  };
+  fs.writeFileSync('src/currencies.json', JSON.stringify(curren), (err) => {
+    if (err) {
+      const error = { status: 400, message: err };
+      throw error;
+    }
+  });
+};
 
 const convertCurrent = (siglaCur, nameCur, cur, convert) => ({
     code: siglaCur,
@@ -18,13 +33,30 @@ const getCryptoCoin = async () => {
       name, nameCurrent[index], current[name], USD,
     ));
     const [BRL, EUR, CAD] = valueCurrent;
-  
-    data.bpi = { ...data.bpi, BRL, EUR, CAD };
+  data.bpi = { ...data.bpi, BRL, EUR, CAD };
 
   return data;
+};
+
+const postCryptoJson = (cur, value) => {
+  const curren = {
+    ...current, [cur]: value,
+  };
+
+  fs.writeFile('src/currencies.json', JSON.stringify(curren), (err) => {
+    if (err) {
+      const erro = { status: 400, message: err };
+      throw erro;
+    }
+  });
+  return {
+    message: 'Valor alterado com sucesso!',
+  };
 };
 
 module.exports = {
   getCryptoCoin,
   convertCurrent,
+  postCryptoJson,
+  restartCurrent,
 };

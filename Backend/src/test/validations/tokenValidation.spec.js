@@ -11,7 +11,6 @@ describe('ValidateToken', () => {
   it('Valida que não é possível o paramentro Token esta em branco`', () => {
     const Token = ''
     const isValidToken = validateToken(Token)
-    console.log(isValidToken);
     expect(isValidToken).toEqual({ status: 401, message: 'Token not found' })
   });
 

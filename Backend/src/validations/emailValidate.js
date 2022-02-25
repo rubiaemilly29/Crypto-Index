@@ -1,7 +1,5 @@
 const validateEmail = (email) => {
-  const validRegex = new RegExp(
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/,
-  );
+  const validRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/;
 
   if (!email || email === '') return { status: 400, message: 'Campos inválidos' };
 
