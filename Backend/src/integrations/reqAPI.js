@@ -12,6 +12,4 @@ const currentPrice = async () => {
   }
 };
 
-module.exports = {
-  currentPrice,
-};
+module.exports = currentPrice;
