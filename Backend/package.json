@@ -4,7 +4,7 @@
   "description": "Aplicação de preço do BitCoin em diferentes moedas.",
   "main": "./src/api/server.js",
   "scripts": {
-    "start": "node server",
+    "start": "node ./src/api/server",
     "dev": "nodemon .",
     "lint": "eslint  --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx",
     "test": "jest"

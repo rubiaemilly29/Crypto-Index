@@ -5,7 +5,7 @@ const port = process.env.PORT;
 
 const url = `http://localhost:${port}/api`;
 
-describe.skip('Endpoint GET /api/cryto/btc`', () => {
+describe('Endpoint POST /api/cryto/btc`', () => {
   let token = "wd48Ltw5nd-cDaRg";
 
   it('Valida que é possível modificar o valor de cambio BRL', async () => {

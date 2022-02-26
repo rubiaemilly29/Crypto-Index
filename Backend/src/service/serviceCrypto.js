@@ -3,17 +3,21 @@ const api = require('../integrations/reqAPI');
 const current = require('../currencies.json');
 
 const restartCurrent = () => {
+  const router = 'src/currencies.json';
   const curren = {
     BRL: '5.400',
     EUR: '0.920',
     CAD: '1.440',
   };
-  fs.writeFileSync('src/currencies.json', JSON.stringify(curren), (err) => {
-    if (err) {
-      const error = { status: 400, message: err };
-      throw error;
-    }
-  });
+  const currentFind = JSON.parse(fs.readFileSync(router, 'utf-8'));
+
+  if (
+    currentFind.BRL !== curren.BRL
+    || currentFind.EUR !== curren.EUR
+    || currentFind.CAD !== curren.CAD
+  ) {
+    fs.writeFileSync(router, JSON.stringify(curren)); 
+  }
 };
 
 const convertCurrent = (siglaCur, nameCur, cur, convert) => ({

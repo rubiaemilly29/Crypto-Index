@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const errorRotas = require('../middleware/errorsRotas');
 const errorApi = require('../middleware/errorApi');
 const router = require('../router');
+const { restartCurrent } = require('../service/serviceCrypto');
 
 const app = express();
 app.use(morgan('dev'));
@@ -19,5 +20,6 @@ app.use(rescue(errorRotas));
 app.use(errorApi);
 
 app.listen(port, () => {
+  restartCurrent();
 console.log(`Listening to port http://localhost:${port}`);
 });

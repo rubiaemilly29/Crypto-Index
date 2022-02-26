@@ -5,7 +5,7 @@ const port = process.env.PORT;
 
 const url = `http://localhost:${port}/api`;
 
-describe.skip('Endpoint POST `/login`',  () => {
+describe('Endpoint POST `/login`',  () => {
 
   it('Valida que não é possível fazer login sem o campo `email`', async () => {
 
