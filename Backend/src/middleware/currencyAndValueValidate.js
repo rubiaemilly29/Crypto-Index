@@ -3,6 +3,7 @@ const validateValue = require('../validations/valueValidate');
 
 const currencyAndValueValidation = (req, _res, next) => {
   const { currency, value } = req.body;
+  console.log(req.body, currency, value, 'estou no curretvalidation');
 
   const isCurrencyValid = validatecurrency(currency);
 

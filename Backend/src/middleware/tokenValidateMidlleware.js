@@ -1,8 +1,9 @@
 const validateToken = require('../validations/tokenValidation');
 
 const tokenValidation = async (req, res, next) => {
-  const tokenReq = req.headers.authorization;
-  const validate = validateToken(tokenReq);
+  const token = req.headers.authorization;
+  console.log(token);
+  const validate = validateToken(token);
   if (validate.message) throw validate;
   next();
 };

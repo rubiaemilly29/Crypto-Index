@@ -1,7 +1,7 @@
 const validateEmail = require('../validations/emailValidate');
 const validatePassword = require('../validations/passwordValidate');
 
-const LoginValidation = async (req, res, next) => {
+const LoginValidation = async (req, _res, next) => {
   const { email, password } = req.body;
   const isEmailValid = await validateEmail(email);
 
