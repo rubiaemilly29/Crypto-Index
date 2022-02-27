@@ -3,6 +3,7 @@ const api = require('../integrations/reqAPI');
 const current = require('../currencies.json');
 
 const restartCurrent = () => {
+  console.log('estou no restart');
   const router = 'src/currencies.json';
   const curren = {
     BRL: '5.400',
