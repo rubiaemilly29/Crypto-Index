@@ -3,21 +3,22 @@ import PropTypes from 'prop-types';
 import Context from './Context';
 
 function Provider({ children }) {
-	const [tokenLogin, settokenLogin] = useState(0);
-	const [getCrypto, setgetCrypto] = useState('');
+	const [dataGetCrypto, setdataGetCrypto] = useState('');
 	const [loading, setloading] = useState(true);
 	const [erro, seterro] = useState(false);
+	const [messageError, setmessageError] = useState('');
+
 
 
 	const states = {
-		tokenLogin,
-		getCrypto,
+		dataGetCrypto,
 		loading,
 		erro,
+		messageError,
 		setloading,
-		setgetCrypto,
-		settokenLogin,
+		setdataGetCrypto,
 		seterro,
+		setmessageError,
 	};
 
 	return (

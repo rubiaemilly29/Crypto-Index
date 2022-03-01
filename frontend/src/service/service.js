@@ -16,7 +16,6 @@ export async function postLogin(email, password) {
 
 export async function getCrypto(token) {
 	try {
-		console.log(token);
 		const url = 'http://localhost:4000/api/cryto/btc';
 		const tokenLogin = token;
 		const crypto = await axios.get(url, {
@@ -24,7 +23,7 @@ export async function getCrypto(token) {
 				Authorization: tokenLogin,
 			}
 		});
-		console.log(token, crypto);
+		return crypto.data;
 	} catch (error) {
 		throw error.response.data.message;
 	}

@@ -5,21 +5,23 @@ import '../css/login.css';
 import Context from '../context/Context';
 import Error from '../component/Error';
 import { postLogin } from '../service/service';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 
 
 export default function Login() {
 	const history = useNavigate();
 	const [email, setemail] = useState('');
 	const [pass, setpass] = useState('');
-	const [messageError, setmessageError] = useState('');
+
+	const token = localStorage.getItem('token');
 
 	let {
 		loading,
 		erro,
+		messageError,
 		setloading,
-		settokenLogin,
 		seterro,
+		setmessageError,
 	} = useContext(Context);
 
 	useEffect(() => {
@@ -28,14 +30,16 @@ export default function Login() {
 		};
 		e();
 	}, [erro]);
+
+	const setToken = (token) => {
+		localStorage.setItem('token', JSON.stringify(token));
+	};
 	
 	const handleClick = async () => {
-		console.log(typeof pass);
-		console.log(typeof email);
 		try {
 			setloading(true);
 			const token = await postLogin(email, pass);
-			settokenLogin(token),
+			setToken(token),
 			setloading(false);
 			history({ pathname: '/Crypto' });
 		} catch (error) {
@@ -47,7 +51,7 @@ export default function Login() {
 	};
 
 
-	return (
+	return token ? <Navigate replace  to = "/"  /> : (
 		loading ? <Loading /> :
 			<>
 				<Form
