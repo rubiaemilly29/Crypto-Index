@@ -1,0 +1,28 @@
+.center {
+  margin: 220, auto;
+  border-radius: 15px;
+  padding: 30px;
+  background-color: rgba(211, 244, 247, 0.452);
+}
+
+.center input{
+    background-color: rgba(167, 213, 216, 0.205);
+    color: rgb(59, 182, 174);
+}
+.center input:hover {
+  background-color: rgba(127, 255, 212, 0.199);
+  color: rgb(0, 0, 0);
+}
+
+.center button {
+  background-color: rgb(74, 170, 177);
+  margin-left: 130px;
+  margin-top: 10px;
+  border-color: rgb(63, 147, 153);
+}
+
+.center button:hover {
+  background-color: rgba(127, 255, 212, 0.199);
+  color: rgb(0, 0, 0);
+  border-color: aquamarine;
+}
